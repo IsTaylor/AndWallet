@@ -1,7 +1,10 @@
 package com.example.owner.andwallet;
 
+
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -15,6 +18,8 @@ public class Summary extends AppCompatActivity {
     TextView tvOutcome;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.layoutSummary)
+    LinearLayout layoutSummary;
 
 
     @Override
@@ -26,9 +31,12 @@ public class Summary extends AppCompatActivity {
 
         tvIncome.setText(Integer.toString(SummaryData.getInstance().getIncome()));
         tvOutcome.setText(Integer.toString(SummaryData.getInstance().getOutcome()));
-        tvTotal.setText(Integer.toString(SummaryData.getInstance().getTotal()));
+        tvTotal.setText(getString(R.string.total_is, Integer.toString(SummaryData.getInstance().getTotal())));
 
-
+        AnimationDrawable animationDrawable = (AnimationDrawable) layoutSummary.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
     }
 
 

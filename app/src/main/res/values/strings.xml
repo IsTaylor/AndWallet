@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AndWallet</string>
+    <string name="current_balance_is_0">Current Balance is: 0</string>
+    <string name="current_balance">Current balance is %1$d</string>
+    <string name="total_is_0">Total is: 0</string>
+    <string name="expenses">Expenses</string>
+    <string name="total_is">Total is: %1$s</string>
+    <string name="this_page_shows_your_summary">This page shows your summary</string>
+    <string name="title">Title</string>
+    <string name="amount">Amount</string>
+    <string name="outcome">Outcome</string>
+    <string name="income">Income</string>
+    <string name="save">Save</string>
+    <string name="expense_and_income_page">Expense and Income page</string>
+    <string name="summary_page">Summary Page</string>
+    <string name="empty_field_error">This field cannot be empty</string>
+</resources>

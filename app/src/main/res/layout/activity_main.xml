@@ -4,18 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layoutMain"
+    android:background="@drawable/android_gradient_list"
     tools:context="com.example.owner.andwallet.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:textColor="#b8dfff"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/app_name"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp" />
 
     <Button
         android:id="@+id/btnExpense"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Expense and Income page" />
+        android:text="@string/expense_and_income_page" />
 
     <Button
         android:id="@+id/btnSummary"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Summary Page" />
+        android:text="@string/summary_page" />
 
 </LinearLayout>

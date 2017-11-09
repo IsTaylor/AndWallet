@@ -1,5 +1,6 @@
 package com.example.owner.andwallet;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class ExpenseScreen extends AppCompatActivity {
 
     @BindView(R.id.layoutContent)
     LinearLayout layoutContent;
+    @BindView(R.id.layoutExpense)
+    LinearLayout layoutExpense;
     @BindView(R.id.etTitle)
     EditText etTitle;
     @BindView(R.id.etAmount)
@@ -33,6 +36,7 @@ public class ExpenseScreen extends AppCompatActivity {
     @BindView(R.id.tvBalance)
     TextView tvBalance;
 
+
     private int balance = 0;
 
 
@@ -41,7 +45,13 @@ public class ExpenseScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense_screen);
 
+
         ButterKnife.bind(this);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) layoutExpense.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
     }
 
     @Override
@@ -53,9 +63,13 @@ public class ExpenseScreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_about:
+            case R.id.action_delete:
                 Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show();
                 layoutContent.removeAllViewsInLayout();
+                SummaryData.getInstance().reset();
+                balance = 0;
+                String text = getString(R.string.current_balance, balance);
+                tvBalance.setText(text);
                 break;
         }
 
@@ -92,15 +106,15 @@ public class ExpenseScreen extends AppCompatActivity {
 
                 ImageView ivExpense = expenseRow.findViewById(R.id.ivExpense);
                 if (tbInOut.isChecked()) {
-                    ivExpense.setImageResource(R.mipmap.ic_launcher_round);
+                    ivExpense.setImageResource(R.mipmap.down_arrow);
                 }
 
                 layoutContent.addView(expenseRow, 0);
             } else {
-                etAmount.setError("This field cannot be empty");
+                etAmount.setError(getString(R.string.empty_field_error));
             }
         } else {
-            etTitle.setError("This field cannot be empty");
+            etTitle.setError(getString(R.string.empty_field_error));
         }
 
     }

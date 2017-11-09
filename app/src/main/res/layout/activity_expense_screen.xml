@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:screenOrientation="portrait"
+    android:id="@+id/layoutExpense"
+    android:background="@drawable/android_gradient_list"
     tools:context="com.example.owner.andwallet.ExpenseScreen">
 
     <LinearLayout
@@ -20,7 +22,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:hint="Title" />
+            android:textColor="#b8dfff"
+            android:textColorHint="#7fb0d9"
+            android:hint="@string/title" />
 
         <EditText
             android:id="@+id/etAmount"
@@ -28,7 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:hint="Amount" />
+            android:textColor="#b8dfff"
+            android:textColorHint="#7fb0d9"
+            android:hint="@string/amount" />
 
     </LinearLayout>
 
@@ -42,15 +48,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:textOff="Income"
-            android:textOn="Outcome" />
+            android:textOff="@string/income"
+            android:textOn="@string/outcome" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Save" />
+            android:text="@string/save" />
 
     </RelativeLayout>
 
@@ -58,6 +64,9 @@
         android:id="@+id/tvBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#b8dfff"
+        android:layout_gravity="center_horizontal"
         android:text="@string/current_balance_is_0" />
 
     <ScrollView
@@ -70,7 +79,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
         </LinearLayout>
 
